@@ -1,21 +1,22 @@
-#기본 뼈대
-
-import pygame
-
-pygame.init()
-screen_width = 1280
-screen_height = 720
-screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Gold Miner")
-
-clock = pygame.time.Clock()
-
-running = True
-while running:
-    clock.tick(30) #FPS 값이 30으로 고정
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-pygame.quit()
+class robot:
+    name = 'robot'
+    age = 0
+    def __init__(self, name, age):
+        print('robot 생성자 호출')
+        self.name = name
+        self.age = age
+    def __def__(self):
+        print('robot 소멸자 호출')
+    def info(self):
+        print('나의 이름은', self.name, '입니다.')
+        print('나이는', self.age, '입니다.')
+    
+class strong_robot(robot):
+    weapon = 'gun'
+    def __init(self, name, age, weapon):
+        print('strong_robot 생성자 호출')
+        super().__init__(name, age)
+        self.weapon = weapon
+    def info(self):
+        super().info()
+        print(self.weapon, '로 싸웁니다.')
