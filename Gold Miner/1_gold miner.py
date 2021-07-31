@@ -8,6 +8,17 @@ class Gemstone(pygame.sprite.Sprite):
         self.image = image
         self.rect = image.get_rect(center = position)
 
+def setup_gemstone():
+    #작은 금
+    small_gold = Gemstone(gemstone_images[0], (200, 380)) # 0번째 이미지를 (200, 300) 위치에
+    gemstone_group.add(small_gold)#그룹에 추가
+    #큰 금
+    gemstone_group.add(Gemstone(gemstone_images[1], (300, 500)))
+    #돌
+    gemstone_group.add(Gemstone(gemstone_images[2], (300, 380)))
+    #다이아몬드
+    gemstone_group.add(Gemstone(gemstone_images[3], (900, 420)))
+
 
 #기본 설정
 pygame.init()
@@ -30,6 +41,10 @@ gemstone_images = [
     pygame.image.load(os.path.join(current_path, "diamond.png")) #다이아몬드
 ]
 
+#보석 그룹
+gemstone_group = pygame.sprite.Group()
+setup_gemstone() #게임에 원하는 만큼의 보석을 정의
+
 running = True
 while running:
     clock.tick(30) #FPS 값이 30으로 고정
@@ -39,6 +54,9 @@ while running:
             running = False #running event를 false로 바꿔준다.
 
     screen.blit(background, (0,0))
+
+    gemstone_group.draw(screen) #그룹 내 모든 스프라이트를 screen에 표시
+
     pygame.display.update() #display 업데이트
 
 pygame.quit()
