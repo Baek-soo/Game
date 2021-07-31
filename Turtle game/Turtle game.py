@@ -14,7 +14,7 @@ mypen.setposition(-300, 300) #Turtle을 원하는 좌표의 위치에 도착하�
 mypen.pendown() # 원하는 위치에 펜이 도착했으면 펜을 그리기위해 내려놓는다. 
 mypen.pensize(3) #pen의 선 두께 설정
 
-for x in range(4): #x가 4번 아래조건을 반복한다. 
+for x in range(4): #x가 4번 아래조건을 반복한다. -> 직사각형 그리기
     mypen.forward(600) #앞으로 600만큼 이동한 후 
     mypen.right(90) #90도 회전
 
